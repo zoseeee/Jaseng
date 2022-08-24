@@ -1,0 +1,121 @@
+* {
+    outline: 1px solid rgb(61, 132, 202);
+}
+
+body {
+    font-family: Pretendard, sans-serif;
+}
+
+.container {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+button {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+/* Header 시작 ---> */
+.hd-top {
+    line-height: 50px;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.7);
+}
+
+.hd-top__items {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+}
+
+.ht-bt {
+    line-height: 80px;
+    font-size: 17px;
+}
+
+.ht-bt h1 {
+    width: 20%;
+}
+
+.ht-bt .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.hd-bt__items {
+    display: flex;
+}
+
+
+/* main-visual 시작 ---> */
+.visual-items {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+}
+
+.visual-text {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    color: #fff;
+}
+
+.visual-text p {
+    font-size: 26px;
+}
+
+.visual-text strong {
+    font-size: 46px;
+    font-weight: 700;
+}
+
+.major-menu {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #F0F0F0;
+    line-height: 80px;
+    border-radius: 0 0 15px 15px;
+}
+
+.major-menu .menu-items {
+    font-size: 18px;
+    font-family: Pretendard, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* jaseng-cure 시작 ---> */
+.jaseng-cure {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.jaseng-cure h2 {
+    font-size: 30px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.jaseng-cure p {
+    font-size: 14px;
+    margin-bottom: 50px;
+}
+
+.swiper-wrapper {
+    display: flex;
+}
+
+.card .swiper-slide {
+    width: calc(100% / 4 - 30px);
+    height: 390px;
+    border-radius: 5px;
+}
