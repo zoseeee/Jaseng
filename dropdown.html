@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            padding-bottom: 30px;
+            font-family: "Spoqa Han Sans Neo", "sans-serif";
+            color: #3f4150;
+            background-color: #f4f7fa;
+        }
+
+        ul,
+        li {
+            list-style-type: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        button {
+            font-family: "Spoqa Han Sans Neo", "sans-serif";
+            font-size: 15px;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            color: #3f4150;
+            background-color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:focus,
+        button:active {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .title {
+            width: 200px;
+            margin-bottom: 16px;
+        }
+
+        .title img {
+            width: 100%;
+            height: auto;
+        }
+
+        form {
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 6px;
+        }
+
+        form h1 {
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #3f4150;
+        }
+
+        .dropdown {
+            position: relative;
+            z-index: 1;
+            width: 300px;
+            margin-bottom: 8px;
+        }
+
+        .dropdown-toggle {
+            width: 100%;
+            height: 50px;
+            padding: 0 16px;
+            line-height: 50px;
+            color: rgba(133, 136, 150, 0.5);
+            text-align: left;
+            border: 1px solid rgba(224, 226, 231, 0.75);
+            border-radius: 6px;
+            transition: border-color 100ms ease-in;
+        }
+
+        .dropdown-toggle.selected {
+            color: #3f4150;
+            border-color: rgba(224, 226, 231, 1);
+        }
+
+        .dropdown-toggle:active {
+            border-color: rgba(224, 226, 231, 1);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            z-index: 2;
+            top: calc(100% + 4px);
+            left: 0;
+            width: 100%;
+            max-height: 0;
+            overflow: hidden;
+            background-color: #fff;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            transition: border-color 200ms ease-in, padding 200ms ease-in,
+                max-height 200ms ease-in, box-shadow 200ms ease-in;
+        }
+
+        .dropdown-menu.show {
+            padding: 8px 0;
+            max-height: 280px;
+            border-color: rgba(224, 226, 231, 0.5);
+            box-shadow: 0 4px 9px 0 rgba(63, 65, 80, 0.1);
+        }
+
+        .dropdown-option {
+            width: 100%;
+            height: 44px;
+            padding: 0 16px;
+            line-height: 44px;
+            text-align: left;
+        }
+
+        .dropdown-option:hover {
+            background-color: #f8f9fa;
+        }
+
+        .next-button {
+            display: block;
+            width: 100%;
+            height: 44px;
+            padding: 0 16px;
+            line-height: 44px;
+            color: #f8f9fa;
+            background-color: #1b1c32;
+            border-radius: 6px;
+            transition: background-color 150ms ease-in;
+        }
+
+        .next-button:disabled {
+            background-color: #e0e2e7;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">
+        <img src="./logo.png" alt="김버그 피자" />
+    </h1>
+    <form action="">
+        <h1>🛵 주문하실 지점을 선택해주세요</h1>
+        <div class="dropdown">
+            <button type="button" class="dropdown-toggle">
+                지점을 선택해주세요
+            </button>
+            <ul class="dropdown-menu">
+                <li class="dropdown-item">
+                    <button type="button" value="1" class="dropdown-option">
+                        김버그피자 강남점
+                    </button>
+                </li>
+                <li class="dropdown-item">
+                    <button type="button" value="2" class="dropdown-option">
+                        김버그피자 서초점
+                    </button>
+                </li>
+                <li class="dropdown-item">
+                    <button type="button" value="3" class="dropdown-option">
+                        김버그피자 옥인점
+                    </button>
+                </li>
+                <li class="dropdown-item">
+                    <button type="button" value="4" class="dropdown-option">
+                        김버그피자 제주시청점
+                    </button>
+                </li>
+                <li class="dropdown-item">
+                    <button type="button" value="5" class="dropdown-option">
+                        김버그피자 제주이도점
+                    </button>
+                </li>
+                <li class="dropdown-item">
+                    <button type="button" value="6" class="dropdown-option">
+                        김버그피자 제주함덕점
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <button type="submit" class="next-button" disabled>다음</button>
+    </form>
+
+    <script>
+        const dropdownForm = document.querySelector(".drowpdown");
+        const dropdownBtn = document.querySelector(".dropdown-toggle");
+        const menuList = document.querySelector(".dropdown-menu");
+        const itemList = document.querySelector(".dropdown-item");
+        const optionBtn = document.querySelectorAll(".dropdown-option");
+        const submit = document.querySelector(".next-button");
+
+        // dropdownBtn 클릭하면, menuList 나온다
+        dropdownBtn.addEventListener("click", function () {
+            menuList.classList.toggle("show");
+        });
+
+        // menuList는 사라진다
+        dropdownBtn.addEventListener("blur", function () {
+            menuList.classList.remove("show");
+        });
+
+        // menuList 중 하나를 클릭하면,
+        optionBtn.forEach(function (item) {
+            item.addEventListener("click", function (e) {
+                // 선택한 값 지정
+                const selectValue = e.currentTarget.textContent.trim();
+                // 지정 값 출력
+                dropdownBtn.textContent = selectValue;
+                // 색깔 변화
+                dropdownBtn.classList.add("selected");
+                // 버튼 생성
+                submit.removeAttribute("disabled");
+            });
+        });
+    </script>
+</body>
+
+</html>
